@@ -1,11 +1,19 @@
-import React, { Component } from 'react'
+import React from "react";
+import "./Todo.css";
 
-export default class Todo extends Component {
-    render() {
-        return (
-            <div>
-                <h3>blah</h3>
-            </div>
-        )
-    }
+class Todo extends React.Component {
+  handleToggle = () => {
+    this.props.toggleItem(this.props.item.id);
+  };
+  render() {
+    return (
+      <div
+        onClick={this.handleToggle}
+        className={this.props.item.complete ? "completed" : ""}
+      >
+        {this.props.item.name}
+      </div>
+    );
+  }
 }
+export default Todo;
